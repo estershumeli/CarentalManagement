@@ -1,0 +1,24 @@
+<!-- book-car.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Car</title>
+</head>
+<body>
+<h1>Book a Car</h1>
+<form th:action="@{/reservations}" method="post">
+    <label for="car">Select Car:</label>
+    <select id="car" name="carId">
+        <option th:each="car : ${cars}" th:value="${car.id}" th:text="${car.brand + ' ' + car.model}"></option>
+    </select>
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate" required>
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate" required>
+    <button type="submit">Book Now</button>
+</form>
+</body>
+</html>
+

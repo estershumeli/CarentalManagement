@@ -1,0 +1,36 @@
+<!-- reservations.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations</title>
+</head>
+<body>
+<h1>Your Reservations</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Car</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Total Amount</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reservation : ${reservations}">
+        <td th:text="${reservation.car.brand} + ' ' + ${reservation.car.model}"></td>
+        <td th:text="${reservation.startDate}"></td>
+        <td th:text="${reservation.endDate}"></td>
+        <td th:text="${reservation.totalAmount}"></td>
+        <td>
+            <form th:action="@{/reservations/{id}(id=${reservation.id})}" method="post">
+                <button type="submit">Cancel</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

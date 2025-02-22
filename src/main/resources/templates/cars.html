@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Cars</title>
+</head>
+<body>
+<h1>Available Cars</h1>
+<ul>
+    <li th:each="car : ${cars}">
+        <strong th:text="${car.brand + ' ' + car.model}"></strong>
+        <span th:text="${car.color + ', ' + car.year}"></span><br>
+        Mileage: <span th:text="${car.mileage} + ' km'"></span> -
+        <span th:text="'$' + ${car.dailyRate} + '/day'"></span>
+    </li>
+</ul>
+</body>
+</html>
+
+
+
