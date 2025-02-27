@@ -1,2 +1,2 @@
 # CarRentalManagement
-Springboot
+SDA JAVA COURSE FINAL PROJECT
